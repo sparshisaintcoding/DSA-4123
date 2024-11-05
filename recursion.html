@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unit1</title>
+    <link rel="stylesheet" href="programs.css">
+</head>
+
+<body>
+    <div class="d" id="d1">
+        <h2>1. CALCULATE FACTORIAL OF A NUMBER USING RECURSION.</h2><br>
+        <pre>
+    <b id="b">Code:</b>
+    #include < stdio.h>
+
+        // Function to calculate factorial recursively
+        unsigned long long factorial(int n) {
+            // Base case
+            if (n == 0) {
+                return 1;
+            }
+            // Recursive case
+            return n * factorial(n - 1);
+        }
+        
+        // Main function
+        int main() {
+            int number;
+            
+            printf("Enter a non-negative integer: ");
+            scanf("%d", &number);
+            
+            if (number < 0) {
+                printf("Factorial is not defined for negative numbers.\n");
+            } else {
+                unsigned long long result = factorial(number);
+                printf("Factorial of %d is %llu\n", number, result);
+            }
+            
+            return 0;
+        }
+        
+
+    <b id="b">Output:</b>
+    Enter a non-negative integer: 5
+    Factorial of 5 is 120
+        
+        </pre>
+    </div>
+
+
+    <div class="d" id="d2">
+        <h2>2. CALCULATE FIBONACCI OF A NUMBER USING RECURSION.</h2><br>
+        <pre>
+    <b id="b">Code:</b>
+    #include < stdio.h>
+
+        // Function to calculate Fibonacci number recursively
+        int fibonacci(int n) {
+            // Base cases
+            if (n == 0) {
+                return 0;
+            }
+            if (n == 1) {
+                return 1;
+            }
+            // Recursive case
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+        
+        // Main function
+        int main() {
+            int number;
+        
+            printf("Enter a non-negative integer: ");
+            scanf("%d", &number);
+        
+            if (number < 0) {
+                printf("Fibonacci is not defined for negative numbers.\n");
+            } else {
+                int result = fibonacci(number);
+                printf("Fibonacci of %d is %d\n", number, result);
+            }
+        
+            return 0;
+        }
+        
+
+
+    <b id="b">Output:</b>
+    Enter a non-negative integer: 6
+    Fibonacci of 6 is 8
+        
+        </pre>
+    </div>
+
+
+    <div class="d" id="d3">
+        <h2>3. CALCULATE THE SUM OF NATURAL NUMBERS TILL 10 USING RECURSION.</h2><br>
+        <pre>
+    <b id="b">Code:</b>
+    #include < stdio.h>
+
+        // Function to calculate the sum of natural numbers recursively
+        int sumOfNaturalNumbers(int n) {
+            // Base case
+            if (n == 0) {
+                return 0;
+            }
+            // Recursive case
+            return n + sumOfNaturalNumbers(n - 1);
+        }
+        
+        // Main function
+        int main() {
+            int number = 10; // Calculate the sum up to 10
+        
+            int result = sumOfNaturalNumbers(number);
+            printf("The sum of natural numbers till %d is %d\n", number, result);
+        
+            return 0;
+        }
+        
+
+    <b id="b">Output:</b>
+    The sum of natural numbers till 10 is 55
+
+        </pre>
+    </div>
+
+
+    <div class="d" id="d4">
+        <h2>4. ENTER THE NUMBER FROM THE USER AND ADD ALL DIGITS OF THE NUMBER USING RECURSION.</h2><br>
+        <pre>
+    <b id="b">Code:</b>
+    #include < stdio.h>
+
+        // Function to sum the digits of a number recursively
+        int sumOfDigits(int n) {
+            // Base case: if n is 0, return 0
+            if (n == 0) {
+                return 0;
+            }
+            // Recursive case: return last digit + sum of remaining digits
+            return (n % 10) + sumOfDigits(n / 10);
+        }
+        
+        // Main function
+        int main() {
+            int number;
+        
+            printf("Enter a non-negative integer: ");
+            scanf("%d", &number);
+        
+            if (number < 0) {
+                printf("Please enter a non-negative integer.\n");
+            } else {
+                int result = sumOfDigits(number);
+                printf("The sum of the digits of %d is %d\n", number, result);
+            }
+        
+            return 0;
+        }
+        
+
+
+    <b id="b">Output:</b>
+    Enter a non-negative integer: 12345
+    The sum of the digits of 12345 is 15
+        
+        </pre>
+    </div>
+
+    <div class="d" id="d5">
+        <h2>5. CONVERT A NUMBER INTO BINARY USING RECURSION.</h2><br>
+        <pre>
+    <b id="b">Code:</b>
+    #include < stdio.h>
+
+        // Function to convert a number to binary recursively
+        void convertToBinary(int n) {
+            // Base case: when n is 0, return
+            if (n == 0) {
+                return;
+            }
+            // Recursive call
+            convertToBinary(n / 2);
+            // Print the remainder (binary digit)
+            printf("%d", n % 2);
+        }
+        
+        // Main function
+        int main() {
+            int number;
+        
+            printf("Enter a non-negative integer: ");
+            scanf("%d", &number);
+        
+            if (number < 0) {
+                printf("Please enter a non-negative integer.\n");
+            } else if (number == 0) {
+                printf("The binary representation of 0 is 0\n");
+            } else {
+                printf("The binary representation of %d is: ", number);
+                convertToBinary(number);
+                printf("\n");
+            }
+        
+            return 0;
+        }
+        
+    
+
+    <b id="b">Output:</b>
+    Enter a non-negative integer: 10
+    The binary representation of 10 is: 1010
+
+        </pre>
+    </div>
+
+    <div class="d" id="d6">
+        <h2>6. FIND THE LARGEST ELEMENT IN THE INTEGER ARRAY USING RECURSION.</h2><br>
+        <pre>
+    <b id="b">Code:</b>
+    #include < stdio.h>
+
+        // Function to find the largest element recursively
+        int findLargest(int arr[], int size, int index) {
+            // Base case: if we reach the last element, return it
+            if (index == size - 1) {
+                return arr[index];
+            }
+        
+            // Recursive case: find the largest in the rest of the array
+            int largestInRest = findLargest(arr, size, index + 1);
+        
+            // Compare the current element with the largest found so far
+            return (arr[index] > largestInRest) ? arr[index] : largestInRest;
+        }
+        
+        // Main function
+        int main() {
+            int size;
+        
+            printf("Enter the number of elements in the array: ");
+            scanf("%d", &size);
+        
+            if (size <= 0) {
+                printf("Please enter a positive integer for the size of the array.\n");
+                return 1;
+            }
+        
+            int arr[size];
+            printf("Enter %d integers:\n", size);
+            for (int i = 0; i < size; i++) {
+                scanf("%d", &arr[i]);
+            }
+        
+            int largest = findLargest(arr, size, 0);
+            printf("The largest element in the array is: %d\n", largest);
+        
+            return 0;
+        }
+        
+
+    <b id="b">Output:</b>
+    Enter the number of elements in the array: 5
+    Enter 5 integers:
+    3 5 2 9 1
+    The largest element in the array is: 9
+        
+        </pre>
+    </div>
+
+    <div class="d" id="d7">
+        <h2>7. FIND THE SMALLEST ELEMENT IN THE INTEGER ARRAY USING RECURSION.</h2><br>
+        <pre>
+    <b id="b">Code:</b>
+    #include < stdio.h>
+
+        // Function to find the smallest element recursively
+        int findSmallest(int arr[], int size, int index) {
+            // Base case: if we reach the last element, return it
+            if (index == size - 1) {
+                return arr[index];
+            }
+        
+            // Recursive case: find the smallest in the rest of the array
+            int smallestInRest = findSmallest(arr, size, index + 1);
+        
+            // Compare the current element with the smallest found so far
+            return (arr[index] < smallestInRest) ? arr[index] : smallestInRest;
+        }
+        
+        // Main function
+        int main() {
+            int size;
+        
+            printf("Enter the number of elements in the array: ");
+            scanf("%d", &size);
+        
+            if (size <= 0) {
+                printf("Please enter a positive integer for the size of the array.\n");
+                return 1;
+            }
+        
+            int arr[size];
+            printf("Enter %d integers:\n", size);
+            for (int i = 0; i < size; i++) {
+                scanf("%d", &arr[i]);
+            }
+        
+            int smallest = findSmallest(arr, size, 0);
+            printf("The smallest element in the array is: %d\n", smallest);
+        
+            return 0;
+        }
+        
+
+    <b id="b">Output:</b>
+    Enter the number of elements in the array: 5
+    Enter 5 integers:
+    3 5 2 9 1
+    The smallest element in the array is: 1
+        
+        </pre>
+    </div>
+
+    <div class="d" id="d8">
+        <h2>8. FIND THE ARITHMETIC MEAN OF AN INTEGER ARRAY USING RECURSION.</h2><br>
+        <pre>
+    <b id="b">Code:</b>
+    #include < stdio.h>
+
+        // Function to calculate the sum of array elements recursively
+        int sumOfArray(int arr[], int size, int index) {
+            // Base case: if we reach the end of the array, return 0
+            if (index == size) {
+                return 0;
+            }
+            // Recursive case: return current element + sum of the rest
+            return arr[index] + sumOfArray(arr, size, index + 1);
+        }
+        
+        // Function to calculate the arithmetic mean
+        double calculateMean(int arr[], int size) {
+            // Get the sum of the array
+            int sum = sumOfArray(arr, size, 0);
+            // Calculate the mean
+            return (double)sum / size; // Casting to double for accurate mean
+        }
+        
+        // Main function
+        int main() {
+            int size;
+        
+            printf("Enter the number of elements in the array: ");
+            scanf("%d", &size);
+        
+            if (size <= 0) {
+                printf("Please enter a positive integer for the size of the array.\n");
+                return 1;
+            }
+        
+            int arr[size];
+            printf("Enter %d integers:\n", size);
+            for (int i = 0; i < size; i++) {
+                scanf("%d", &arr[i]);
+            }
+        
+            double mean = calculateMean(arr, size);
+            printf("The arithmetic mean of the array is: %.2f\n", mean);
+        
+            return 0;
+        }
+        
+                
+
+    <b id="b">Output:</b>
+    Enter the number of elements in the array: 5
+    Enter 5 integers:
+    10 20 30 40 50
+    The arithmetic mean of the array is: 30.00
+        
+        </pre>
+    </div>
+
+
+
+
+
+</body>
+
+</html>
